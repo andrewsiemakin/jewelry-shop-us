@@ -1,0 +1,145 @@
+.wrapper {
+  position: relative;
+
+  box-sizing: border-box;
+  width: 320px;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background: #F8F3E9;
+  padding: 0 40px 52px;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+
+  @media screen and (min-width: 768px){
+    width: 400px;
+  }
+}
+
+.closeBtn {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+
+  width: 32px;
+  height: 32px;
+
+  cursor: pointer;
+}
+
+s.open {
+  backdrop-filter: blur(5px);
+}
+
+.title {
+  margin: 48px 0 58px 0;
+
+  font-family: "Noto Sans JP", serif;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+
+  @media screen and (min-width: 768px){
+    font-size: 26px;
+  }
+}
+
+
+.formSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.error {
+  border: 1px solid red !important;
+}
+
+.input {
+  box-sizing: border-box;
+  width: 100%;
+
+  font-family: 'Montserrat', sans-serif;
+
+  display: flex;
+  background: transparent;
+
+  border-radius: 17px;
+  border: 1px solid black;
+
+  padding: 18px 16px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 26px;
+  border: 1px solid black;
+  background: transparent;
+  width: 238px;
+  height: 73px;
+
+  cursor: pointer;
+
+  border-radius: 38px;
+  font-size: 16px;
+  font-weight: 600;
+
+  font-family: 'Montserrat', sans-serif;
+
+  transition: background 0.3s, color 0.3s, padding 0.6s;
+
+  &:hover {
+    display: flex;
+    align-items: center;
+    color: white;
+    background: black;
+    padding: 16px 30px;
+  }
+}
+
+.textAreaField {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 17px;
+  border: 1px solid black;
+
+
+}
+
+.textArea {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  all: unset;
+  width: 284px;
+  height: 134px;
+
+  padding: 18px 16px;
+
+
+  font-size: 12px;
+  font-weight: 400;
+
+  margin-bottom: 10px;
+
+  white-space: pre-wrap; /* Позволяет переносить текст на следующую строку */
+  overflow-wrap: break-word;
+}
+
+.placeholder {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #aaa;
+  pointer-events: none; /* Позволяет кликать сквозь элемент */
+}

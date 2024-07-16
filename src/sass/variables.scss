@@ -1,0 +1,14 @@
+// Breakpoints
+$mobile: 320px;
+$tablet: 768px;
+$desktop-sm: 1024px;
+$desktop: 1240px;
+$desktop-xl: 1920px;
+
+:export {
+  mobile: $mobile;
+  tablet: $tablet;
+  desktopSm: $desktop-sm;
+  desktop: $desktop;
+  desktopXl: $desktop-xl;
+}

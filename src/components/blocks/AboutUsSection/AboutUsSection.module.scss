@@ -1,0 +1,59 @@
+@import 'src/sass/variables';
+
+.wrapper {
+  display: block;
+  padding-top: 26px;
+  padding-bottom: 44px;
+  background: linear-gradient(0deg, rgba(222, 217, 208, 0.8), rgba(222, 217, 208, 0.8)), url("/images/about-us.png");
+
+  @media screen and (min-width: $tablet) {
+    background: rgb(222, 217, 208);
+    padding-top: 62px;
+    padding-bottom: 67px;
+    display: flex;
+    gap: 119px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    display: none;
+
+    @media screen and (min-width: $tablet) {
+      width: 38%;
+      display: block;
+      height: auto;
+    }
+  }
+}
+
+.aboutTitle {
+  line-height: 24px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 14px;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 48px;
+
+    margin-bottom: 16px;
+  }
+}
+
+.description {
+  display: flex;
+  font-size: 14px;
+  margin-top: 16px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 434px;
+  }
+}

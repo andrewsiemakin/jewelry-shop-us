@@ -1,0 +1,59 @@
+.loader {
+  width: 48px;
+  height: 48px;
+  animation: rotate 2s linear infinite;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 190px;
+  min-height: 220px;
+  padding: 48px 65px;
+  background: rgba(248, 243, 233, 1);
+
+  box-shadow: 0 4px 33.9px 0 rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  font-size: 24px;
+  line-height: 34.49px;
+  text-align: center;
+
+}
+
+.description {
+  font-size: 18px;
+  line-height: 21.94px;
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+
+  cursor: pointer;
+  background: transparent;
+  padding: 26px 0;
+  border-radius: 61px;
+  border: 1px solid rgba(0, 0, 0, 1);
+
+  transition: all 100ms ease-in;
+
+  &:hover {
+    color: white;
+    background: black;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

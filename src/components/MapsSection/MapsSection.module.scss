@@ -1,0 +1,52 @@
+@import 'src/sass/variables';
+
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 0;
+
+  @media screen and (min-width: $tablet) {
+    padding: 156px 0;
+  }
+}
+
+.locationTitle {
+  font-size: 26px;
+  margin-bottom: 52px;
+  text-align: center;
+}
+
+.map {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Добавляем промежуток между картами */
+
+  @media screen and (max-width: $tablet) {
+    flex-direction: column; /* Одна колонка на экранах от 375px до tablet */
+  }
+}
+
+.map iframe {
+  width: 300px; /* Ширина карты */
+  height: 300px; /* Высота карты */
+  border: 0;
+}
+
+.mapBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapDescription {
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 10px;
+}
+

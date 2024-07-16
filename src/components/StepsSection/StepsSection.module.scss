@@ -1,0 +1,146 @@
+@import 'src/sass/variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 89px;
+  margin-bottom: 84px;
+}
+
+.loansSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+
+  .loansHeader {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+    .loansTitle {
+      font-size: 48px;
+      margin: 0;
+
+      @media screen and (max-width: $tablet) {
+        font-size: 24px;
+      }
+
+    }
+
+    .loansSubtitle {
+      font-size: 26px;
+      margin: 0;
+
+      @media screen and (max-width: $tablet) {
+        font-size: 14px;
+      }
+
+    }
+  }
+}
+
+.stepsSection {
+  position: relative;
+  width: 100%;
+  min-height: 780px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  padding: 56px 0;
+
+  background-image: url("../../images/gevelry-hand.png");
+  background-repeat: no-repeat;
+  background-position: 800px 350px;
+  background-size: 520px 520px;
+  z-index: 1;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 68px;
+    align-items: unset;
+  }
+
+  @media screen and (min-width: $desktop-xl) {
+    padding: 0 0;
+    max-width: $desktop-xl;
+    flex-direction: row;
+  }
+
+
+}
+
+.loansCard {
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  position: relative;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.textOverlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: absolute;
+  top: 10px;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.stepTitle {
+  font-family: "Noto Sans JP", serif;
+  color: black;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0;
+
+  margin-top: 22px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.stepDescription {
+  font-family: Montserrat, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: black;
+  margin: 0;
+}
+
+
+.stepTitleWhite {
+  font-family: "Noto Sans JP", serif;
+  color: white;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0;
+
+  margin-top: 22px;
+}
+

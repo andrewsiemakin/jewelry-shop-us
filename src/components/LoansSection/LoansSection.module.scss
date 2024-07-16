@@ -1,0 +1,88 @@
+@import 'src/sass/variables';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .acceptSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    background-image: url("../../images/gevelry2.png");
+    background-repeat: no-repeat;
+    background-position: 0 -50px;
+    z-index: 1;
+
+  }
+
+  .productBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 150px;
+    margin: 0 auto;
+
+    .productDescription {
+      font-family: Montserrat, sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}
+
+.productsSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: center;
+  padding: 48px 200px;
+  width: 100%;
+  margin-bottom: 156px;
+
+  @media screen and (max-width: $mobile) {
+    grid-template-columns: 1fr;
+    padding: 48px 20px; // Обеспечиваем отступы, чтобы элементы оставались по центру
+    justify-items: center; // Центрируем элементы в сетке
+  }
+
+  @media screen and (min-width: $mobile) and (max-width: $tablet) {
+    grid-template-columns: 1fr 1fr; // Две колонки на устройствах шириной 425px до ширины планшета
+    padding: 48px 20px; // Добавляем отступы, чтобы элементы оставались по центру
+    justify-items: center; // Центрируем элементы в сетке
+  }
+
+  @media screen and (min-width: $tablet) {
+    grid-template-columns: 1fr 1fr;
+    padding: 56px 20px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 41px 200px;
+    max-width: $desktop-xl;
+  }
+}
+
+.acceptTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  font-size: 48px;
+
+  &::after {
+    content: '';
+    display: block;
+    margin-top: 41px;
+    margin-bottom: 41px;
+    border-bottom: 1px solid black;
+    width: 280px;
+  }
+}

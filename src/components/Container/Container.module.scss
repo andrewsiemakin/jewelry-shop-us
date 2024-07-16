@@ -1,0 +1,17 @@
+@import 'src/sass/variables';
+
+.container {
+  width: 100%;
+
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media screen and (min-width: $desktop) {
+    width: 100%;
+    padding: 0 100px;
+  }
+
+  @media screen and (min-width: $desktop-xl) {
+    max-width: $desktop-xl;
+  }
+}

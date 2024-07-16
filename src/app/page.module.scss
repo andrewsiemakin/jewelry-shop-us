@@ -1,0 +1,126 @@
+.right {
+  display: flex;
+}
+
+
+//.loansSection {
+//  width: 100%;
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: center;
+//  align-items: center;
+//  box-sizing: border-box;
+//
+//  .loansHeader {
+//    display: flex;
+//    flex-direction: column;
+//    text-align: center;
+//    align-items: center;
+//    justify-content: center;
+//
+//    .loansTitle {
+//      font-family: "Noto Sans JP", serif;
+//      font-size: 48px;
+//      font-weight: 600;
+//      margin: 0;
+//
+//    }
+//
+//    .loansSubtitle {
+//      font-family: "Noto Sans JP", serif;
+//      font-size: 26px;
+//      font-weight: 600;
+//      margin: 0;
+//
+//    }
+//  }
+//}
+
+.loansCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 402px;
+  text-align: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+
+.productBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .productDescription {
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+.productsSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  text-align: center;
+  padding: 156px 0;
+
+
+}
+
+.gevelry {
+  position: relative;
+  z-index: 1;
+  top: 50px; /* Пример координаты */
+  left: 50px; /* Пример координаты */
+  width: 100px;
+  height: 100px;
+}
+
+.reviewBlock {
+  width: 100%;
+  min-height: 766px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: #DED9D0;
+
+}
+
+
+.locationBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 156px 396px;
+
+  .locationTitle {
+    font-family: "Noto Sans JP", serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 52px;
+    text-align: center;
+  }
+}
+
+.formSection {
+  display: flex;
+  justify-content: center;
+  background: #DED9D0;
+  padding: 84px 460px 156px;
+}
+
+.footer {
+  background: black;
+  display: flex;
+  width: 100%;
+}

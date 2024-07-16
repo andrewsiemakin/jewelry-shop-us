@@ -1,0 +1,82 @@
+@import 'src/sass/variables';
+
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.chooseUsTitle {
+  margin: 50px 0 0;
+  display: flex;
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+  font-family: Noto Sans JP, serif;
+
+  font-size: 14px;
+  line-height: 20.12px;
+  text-align: left;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    max-width: 260px;
+    font-size: 26px;
+    line-height: 37.36px;
+  }
+}
+
+.chooseUsDescription {
+  margin-top: 24px;
+  margin-bottom: 48px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 48px;
+
+  font-family: 'Montserrat', sans-serif;
+
+  @media screen and (min-width: $desktop-sm) {
+    gap: 72px;
+    flex-wrap: unset;
+    margin-bottom: 133px;
+  }
+}
+
+.itemTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+}
+
+.itemDescription {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 152px;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+    max-width: unset;
+  }
+}
+
+.verticalRing {
+  width: 25%;
+  height: 290%;
+
+  position: absolute;
+  right: 50px;
+  bottom: -100px;
+
+  display: none;
+  margin-top: -255px;
+
+  @media screen and (min-width: 1320px) {
+    display: block;
+  }
+}

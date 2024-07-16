@@ -1,0 +1,204 @@
+@import 'src/sass/variables';
+
+.firstSection {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  margin: 60px auto 0;
+  padding: 0 24px;
+  overflow: hidden;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+
+  @media screen and (min-width: $desktop-xl) {
+    padding: 0 0;
+    max-width: $desktop-xl;
+  }
+}
+
+.left {
+  display: flex;
+  width: 50%;
+  z-index: 2;
+}
+
+.imageWrapper {
+  position: relative;
+  left: -50px;
+  top: 25px;
+  width: 370px;
+  height: 246px;
+
+  @media screen and (min-width: $tablet) {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 522px;
+  }
+}
+
+.image {
+  position: relative;
+  width: 370px;
+  height: 246px;
+  background-size: cover;
+  background-position: center;
+
+  animation: moveUpDown 6s linear infinite;
+
+  transition: opacity 0.5s ease-in-out;
+
+  z-index: 2;
+
+  @media screen and (min-width: $tablet) {
+    width: 100%;
+    height: 522px;
+  }
+
+  &.fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  &.fadeOut {
+    animation: fadeOut 1s ease-in-out forwards;
+  }
+}
+
+.shadow {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 50%;
+  height: 29px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.2) 0%, rgba(248,243,233, 1) 70%);
+  border-radius: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1;
+
+  animation: shadowMove 6s linear infinite;
+
+  transition: opacity 0.5s ease-in-out;
+
+  @media screen and (min-width: $tablet) {
+    bottom: 75px;
+
+  }
+
+
+  &.fadeIn {
+    animation: fadeInShadow 1s ease-in-out forwards;
+  }
+
+  &.fadeOut {
+    animation: fadeOutShadow 1s ease-in-out forwards;
+  }
+}
+
+@keyframes shadowMove {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInShadow {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+  100% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+@keyframes fadeOutShadow {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.9);
+  }
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  margin-top: 90px;
+  font-weight: 400;
+  width: 50%;
+  gap: 8px;
+
+  @media screen and (min-width: $tablet) {
+    gap: 16px;
+  }
+}
+
+.title {
+  font-size: 24px;
+  line-height: 34.49px;
+  margin: 0;
+  letter-spacing: 1px;
+
+  @media screen and (min-width: $tablet) {
+    max-width: 464px;
+    font-size: 48px;
+    line-height: 69px;
+  }
+}
+
+.description {
+  max-width: 170px;
+  margin: 0 0 16px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17.07px;
+  text-align: left;
+
+  @media screen and (min-width: $tablet) {
+    max-width: unset;
+    font-size: 18px;
+    line-height: 21.94px;
+    margin: 0 0 17px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}

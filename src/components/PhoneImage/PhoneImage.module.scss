@@ -2,20 +2,14 @@
 
 
 .wrapper {
-    width: 41px;
-    height: 41px;
     position: fixed; /* Фиксированная позиция */
-    top: 500px; /* Отступ сверху */
+    top: 700px; /* Отступ сверху */
     right: 50px; /* Отступ справа */
-    z-index: 100;/* Z-index, чтобы быть поверх остального контента */
-
+    z-index: 100; /* Z-index, чтобы быть поверх остального контента */
 
     @media screen and (min-width: $tablet) {
-        width: 100px;
-        height: 100px;
-        top: 500px; /* Отступ сверху */
+        top: 600px; /* Отступ сверху */
         right: 60px; /* Отступ справа */
         z-index: 1000; /* Z-index, чтобы быть поверх остального контента */
-
     }
 }

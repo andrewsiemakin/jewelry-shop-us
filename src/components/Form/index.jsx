@@ -40,7 +40,7 @@ const defaultError = {
 const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
 
 
-const Form = () => {
+const Form = ({newRef, className}) => {
     const inputRef = useMask({ mask: '+1 (___) ___-____', replacement: { _: /\d/ }, showMask: true });
 
     const {executeRecaptcha} = useGoogleReCaptcha()
@@ -160,7 +160,7 @@ const Form = () => {
     }
 
     return (
-        <Container section className={s.container}>
+        <Container newRef={newRef} section className={[s.container, className].join(" ")}>
             <form className={s.wrapper} onSubmit={onSubmit}>
                 <h4 className={[noto.className, s.title].join(" ")}>Looking to Sell Items?</h4>
                 <div className={s.formSection}>

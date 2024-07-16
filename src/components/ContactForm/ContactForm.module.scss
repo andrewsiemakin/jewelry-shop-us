@@ -143,3 +143,12 @@ s.open {
   color: #aaa;
   pointer-events: none; /* Позволяет кликать сквозь элемент */
 }
+
+.popup {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
+  transition: all 250ms ease-in;
+}

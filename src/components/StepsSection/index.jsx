@@ -10,9 +10,9 @@ import Container from "@/components/Container";
 
 const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
 
-const StepsSection = ({handlePopup}) => {
+const StepsSection = ({newRef, className, handlePopup}) => {
     return (
-        <Container section id="loans-section" className={s.wrapper}>
+        <Container newRef={newRef} section id="loans-section" className={[s.wrapper, className].join(" ")}>
             <div className={s.loansSection}>
                 <div className={s.loansHeader}>
                     <p className={[noto.className, s.loansTitle].join(" ")}>Pawn Loans or Sell</p>
@@ -58,8 +58,8 @@ const StepsSection = ({handlePopup}) => {
                     <p>Once we agree on the pawn terms, you
                         receive cash immediately</p>
                 </div>
-            <Button onClick={handlePopup} className={s.button}>Request a Quote</Button>
             </div>
+            <Button onClick={handlePopup} className={s.button}>Request a Quote</Button>
         </Container>
     );
 };

@@ -15,11 +15,11 @@ import LoansSection from "@/components/LoansSection";
 import MapsSection from "@/components/MapsSection";
 import ReviewBlock from "@/components/ReviewBlock";
 import PhoneImage from "@/components/PhoneImage";
+import useIntersectionObserver from "@/hooks/useIntersectionObserver";
 
 export default function Home() {
     const [open, setOpen] = useState(false);
-
-
+    const blocksRef = useIntersectionObserver(s.visible)
 
     const handlePopup = () => setOpen(!open)
 
@@ -28,12 +28,12 @@ export default function Home() {
             <Header handlePopup={handlePopup}/>
             <PhoneImage/>
             <WhySection/>
-            <AboutUsSection/>
-            <StepsSection handlePopup={handlePopup}/>
-            <LoansSection/>
-            <ReviewBlock handlePopup={handlePopup}/>
-            <MapsSection/>
-            <Form/>
+            <AboutUsSection newRef={(el) => blocksRef.current[1] = el} className={s.hidden}/>
+            <StepsSection handlePopup={handlePopup} newRef={(el) => blocksRef.current[2] = el} className={s.hidden}/>
+            <LoansSection newRef={(el) => blocksRef.current[3] = el} className={s.hidden}/>
+            <ReviewBlock handlePopup={handlePopup} newRef={(el) => blocksRef.current[4] = el} className={s.hidden}/>
+            <MapsSection newRef={(el) => blocksRef.current[5] = el} className={s.hidden}/>
+            <Form newRef={(el) => blocksRef.current[6] = el} className={s.hidden}/>
             <Popup open={open} onClose={handlePopup}/>
         </>
     );

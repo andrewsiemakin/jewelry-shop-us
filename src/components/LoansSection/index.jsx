@@ -13,9 +13,9 @@ import {Noto_Serif_JP} from "next/font/google";
 
 const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
 
-const LoansSection = () => {
+const LoansSection = ({newRef, className}) => {
     return (
-        <div className={s.wrapper}>
+        <div ref={newRef} className={[s.wrapper, className].join(" ")}>
             <div className={s.acceptSection}>
                 <h3 className={[noto.className, s.acceptTitle].join(" ")}>We accept</h3>
                 <div className={s.productsSection}>

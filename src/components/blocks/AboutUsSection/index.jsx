@@ -10,9 +10,9 @@ import {Montserrat, Noto_Serif_JP} from "next/font/google";
 const noto = Noto_Serif_JP({ weight: "600", subsets: ["latin"] });
 const mont = Montserrat({ weight: "400", subsets: ["latin"] });
 
-const AboutUsSection = () => {
+const AboutUsSection = ({newRef, className}) => {
     return (
-        <Container section className={s.wrapper} id="about-us">
+        <Container newRef={newRef} section className={[s.wrapper, className].join(" ")} id="about-us">
             <Image src={aboutUs} alt="about us" id="about-us"/>
             <div  className={s.content}>
                 <h4 className={[s.aboutTitle, noto.className].join(" ")}>About us</h4>

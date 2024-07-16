@@ -4,9 +4,9 @@ import {Noto_Serif_JP} from "next/font/google";
 const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
 
 
-const MapsSection = () => {
+const MapsSection = ({newRef, className}) => {
     return (
-        <div className={s.wrapper}>
+        <div ref={newRef} className={[s.wrapper, className].join(" ")}>
             <p className={[noto.className, s.locationTitle].join(" ")}>We have two convenient <br/>
                 locations to serve you:</p>
             <div className={s.map}>

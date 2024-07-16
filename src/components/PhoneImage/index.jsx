@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const PhoneImage = () => {
     return (
-        <button className={s.wrapper}>
+        <a href="tel:3106800776" className={s.wrapper}>
             <Image src={phone} alt="Phone Image" />
-        </button>
+        </a>
     );
 };
 

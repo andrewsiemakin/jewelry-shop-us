@@ -13,3 +13,29 @@
         z-index: 1000; /* Z-index, чтобы быть поверх остального контента */
     }
 }
+
+.wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 122px;
+    height: 122px;
+    background-color: #bebebe;
+    border-radius: 50%;
+    transform: translate(-50%, -52%) scale(0);
+    opacity: 0.6;
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -52%) scale(0);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(-50%, -52%) scale(1);
+        opacity: 0;
+    }
+}

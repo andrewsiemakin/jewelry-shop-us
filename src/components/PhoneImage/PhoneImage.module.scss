@@ -3,8 +3,8 @@
 
 .wrapper {
     position: fixed; /* Фиксированная позиция */
-    top: 650px; /* Отступ сверху */
-    right: 50px; /* Отступ справа */
+    top: 720px; /* Отступ сверху */
+    right: 30px; /* Отступ справа */
     z-index: 100; /* Z-index, чтобы быть поверх остального контента */
 
     @media screen and (min-width: $tablet) {

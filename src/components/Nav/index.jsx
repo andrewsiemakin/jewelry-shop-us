@@ -1,6 +1,6 @@
 "use client"
 
-import s from './Header.module.scss'
+import s from './Nav.module.scss'
 
 import { useState } from "react";
 
@@ -12,12 +12,17 @@ import logoImage from "../../images/logo-image.svg"
 
 import { AiOutlineMenu } from "react-icons/ai";
 import { AiOutlineClose } from "react-icons/ai";
+import Popup from "@/components/ContactForm/Popup";
 
 const montserrat = Montserrat({ subsets: ["latin"]})
 
-const Header = () => {
+const Nav = () => {
     const [open, setOpen] = useState(false)
     const [current, setCurrent] = useState("")
+
+    const [openPopup, setOpenPopup] = useState(false);
+
+    const handlePopup = () => setOpenPopup(!openPopup)
 
     const handleLinkClick = (link) => () => {
         setCurrent(link)
@@ -64,8 +69,8 @@ const Header = () => {
                 </Link>
                 <Link
                     className={generateClassName("contact")}
-                    href="/#contact"
-                    onClick={handleLinkClick("contact")}
+                    href="#"
+                    onClick={handlePopup}
                 >
                     Contact
                 </Link>
@@ -93,8 +98,8 @@ const Header = () => {
                 </Link>
                 <Link
                     className={generateClassName("contact")}
-                    href="/#contact"
-                    onClick={handleLinkClick("contact")}
+                    href="#"
+                    onClick={handlePopup}
                 >
                     Contact
                 </Link>
@@ -111,8 +116,9 @@ const Header = () => {
                     <a href="tel:3103987296">310-398-7296</a>
                 </div>
             </div>
+            <Popup open={openPopup} onClose={handlePopup}/>
         </nav>
     );
 };
 
-export default Header;
+export default Nav;

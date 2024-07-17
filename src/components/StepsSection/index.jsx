@@ -1,12 +1,15 @@
 import s from "./StepsSection.module.scss";
+
 import stepOne from "../../images/step-one-image.svg";
 import stepTwo from "../../images/step-two-image.svg";
 import stepThree from "../../images/step-three-image.svg";
+import jewelryHand from "../../images/gevelry-hand.png";
+
 import Image from "next/image";
-import Button from "@/components/Button";
-import React from "react";
 import {Noto_Serif_JP} from "next/font/google";
+
 import Container from "@/components/Container";
+import Button from "@/components/Button";
 
 const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
 
@@ -59,6 +62,7 @@ const StepsSection = ({newRef, className, handlePopup}) => {
                         receive cash immediately</p>
                 </div>
             </div>
+            <Image src={jewelryHand} alt="hand" className={s.jewelryHand}/>
             <Button onClick={handlePopup} className={s.button}>Request a Quote</Button>
         </Container>
     );

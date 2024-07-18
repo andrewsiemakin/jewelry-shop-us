@@ -4,12 +4,12 @@ import s from "./Footer.module.scss";
 import Image from "next/image";
 
 import arrow from "../../icons/arrow-icon.png";
-import logo from "../../images/logo-white.svg";
+import logo from "../../images/main-logo-image-white.svg";
 
 import Link from "next/link";
-import { Noto_Serif_JP} from "next/font/google";
+import {Noto_Serif_JP} from "next/font/google";
 
-const noto = Noto_Serif_JP({ weight: "500", subsets: ["latin"] });
+const noto = Noto_Serif_JP({weight: "500", subsets: ["latin"]});
 
 const Footer = () => {
     return (
@@ -35,25 +35,15 @@ const Footer = () => {
                     </div>
                     <div className={s.infoBlock}>
                         <h4 className={s.infoTitle}>Telephone</h4>
-                        <a href="tel:3106800776" className={s.infoDescription}>310-680-0776</a>
-                        <div className={s.telephoneDivider}></div>
-                        <a href="tel:3103987296" className={s.infoDescription}>310-398-7296</a>
+                        <a href="tel:3106800776" className={s.infoDescription}>(323) 585-5585</a>
                     </div>
                     <div className={s.infoBlock}>
                         <h4 className={s.infoTitle}>Address</h4>
                         <p className={s.infoDescription}>
-                            <a href="https://maps.app.goo.gl/evPjofFGDyB2XCcD7">
-                                4025 Sepulveda Blvd, Culver City, CA 90230
-                            </a>
-                            <br/>
-                            310-398-7296 | 9:00 AM to 6:00 PM</p>
-                        <div className={s.infoDivider}></div>
-                        <p className={s.infoDescription}>
-                            <a href="https://maps.app.goo.gl/vuqXg7Zhe48tHMVt8">
-                                10721 Hawthorne Blvd, Inglewood, CA 90304
-                            </a>
-                            <br/>
-                            310-680-0776 | 9:00 AM to 6:00 PM</p>
+                            Azul Pawn Shop Huntington Park 2644 <br/>
+                            E Florence Ave, Huntington Park, CA 90255
+                        </p>
+
                     </div>
                     <Link href="/policy" className={s.privacyStatement}>Privacy Statement</Link>
                 </div>

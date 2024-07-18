@@ -1,0 +1,42 @@
+// components/LanguageSwitcher.module.scss
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  height: 26px;
+  border: 1px solid black;
+  border-radius: 14px;
+  padding: 4px 8px;
+  gap: 8px;
+
+  font-family: Montserrat, sans-serif;
+
+}
+
+.languageButton {
+  width: 25px;
+  height: 18px;
+
+  color: #000000;
+  padding: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 10px;
+
+  font-size: 8px;
+  font-weight: 400;
+
+  &:hover {
+    background-color: #e0e0e0;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: #0070f3;
+  }
+
+  &.active {
+    background-color: #000000;
+    color: #ffffff;
+  }
+}

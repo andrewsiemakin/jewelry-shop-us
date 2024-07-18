@@ -5,11 +5,15 @@ import Image from "next/image";
 import Container from "@/components/Container";
 
 import ringVertical from "@/images/ring-vertical.svg";
+import {Noto_Serif_JP} from "next/font/google";
+
+const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
+
 
 const WhySection = () => {
     return (
         <Container section className={s.wrapper}>
-            <p className={s.chooseUsTitle}>Why should you choose us?</p>
+            <p className={[noto.className, s.chooseUsTitle].join(" ")}>Why should you choose us?</p>
             <div className={s.chooseUsDescription}>
                 <div className={s.item}>
                     <p className={s.itemTitle}>Large</p>

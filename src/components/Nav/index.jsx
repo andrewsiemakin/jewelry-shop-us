@@ -1,35 +1,36 @@
-"use client"
+"use client";
 
-import s from './Nav.module.scss'
+import s from "./Nav.module.scss";
 
-import { useState } from "react";
+import {useState} from "react";
 
 import Image from "next/image";
 import Link from "next/link";
 import {Montserrat} from "next/font/google";
 
-import logoImage from "../../images/logo-image.svg"
+import logoImage from "../../images/main-logo-image.svg";
 
-import { AiOutlineMenu } from "react-icons/ai";
-import { AiOutlineClose } from "react-icons/ai";
+import {AiOutlineMenu, AiOutlineClose} from "react-icons/ai";
 import Popup from "@/components/ContactForm/Popup";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
-const montserrat = Montserrat({ subsets: ["latin"]})
+const montserrat = Montserrat({subsets: ["latin"]});
 
 const Nav = () => {
-    const [open, setOpen] = useState(false)
-    const [current, setCurrent] = useState("")
+    const [open, setOpen] = useState(false);
+    const [current, setCurrent] = useState("");
 
     const [openPopup, setOpenPopup] = useState(false);
 
-    const handlePopup = () => setOpenPopup(!openPopup)
+    const handlePopup = () => setOpenPopup(!openPopup);
 
     const handleLinkClick = (link) => () => {
-        setCurrent(link)
-        setOpen(false)
-    }
+        setCurrent(link);
+        setOpen(false);
+    };
 
-    const generateClassName = (link) => [s.navlink, montserrat.className, link === current ? s.active : ""].join(" ")
+    const generateClassName = (link) =>
+        [s.navlink, montserrat.className, link === current ? s.active : ""].join(" ");
 
     const toggleMenu = () => {
         setOpen(!open);
@@ -39,11 +40,11 @@ const Nav = () => {
         <nav className={[s.wrapper, open ? s.open : ""].join(" ")}>
             <div className={s.header}>
                 <Image src={logoImage} alt="logo image"/>
-                {
-                    open ?
-                        <AiOutlineClose onClick={toggleMenu} className={s.burgerBtn}/> :
-                        <AiOutlineMenu onClick={toggleMenu} className={s.burgerBtn} />
-                }
+                {open ? (
+                    <AiOutlineClose onClick={toggleMenu} className={s.burgerBtn}/>
+                ) : (
+                    <AiOutlineMenu onClick={toggleMenu} className={s.burgerBtn}/>
+                )}
             </div>
             <div className={s.linksSection}>
                 <Link
@@ -76,9 +77,8 @@ const Nav = () => {
                 </Link>
             </div>
             <div className={s.phoneNumbersSection}>
-                <a href="tel:3106800776">310-680-0776</a>
-                <span>|</span>
-                <a href="tel:3103987296">310-398-7296</a>
+                <LanguageSwitcher/> {/* Добавлено здесь */}
+                <a href="tel:(323) 585-5585">(323) 585-5585</a>
             </div>
 
             <div className={s.mobileNavContent}>
@@ -111,9 +111,8 @@ const Nav = () => {
                     Pawn Loans or Sale
                 </Link>
                 <div className={s.phoneSectionDevice}>
-                    <a href="tel:3106800776">310-680-0776</a>
-                    <span>|</span>
-                    <a href="tel:3103987296">310-398-7296</a>
+                    <LanguageSwitcher/>
+                    <a href="tel:(323) 585-5585">(323) 585-5585</a>
                 </div>
             </div>
             <Popup open={openPopup} onClose={handlePopup}/>

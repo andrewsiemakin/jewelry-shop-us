@@ -37,11 +37,11 @@ const defaultError = {
     images: false
 }
 
-const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
+const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"})
 
 
 const Form = ({newRef, className}) => {
-    const inputRef = useMask({ mask: '+1 (___) ___-____', replacement: { _: /\d/ }, showMask: true });
+    const inputRef = useMask({mask: '+1 (___) ___-____', replacement: {_: /\d/}, showMask: true});
 
     const {executeRecaptcha} = useGoogleReCaptcha()
 
@@ -84,22 +84,22 @@ const Form = ({newRef, className}) => {
             images: false
         }
 
-        if(!name) {
+        if (!name) {
             errorsList.name = true
         }
-        if(!email) {
+        if (!email) {
             errorsList.email = true
         }
-        if(!phone) {
+        if (!phone) {
             errorsList.phone = true
         }
-        if(!description) {
+        if (!description) {
             errorsList.description = true
         }
-        if(!location) {
+        if (!location) {
             errorsList.location = true
         }
-        if(!images.length) {
+        if (!images.length) {
             errorsList.images = true
         }
 
@@ -108,7 +108,7 @@ const Form = ({newRef, className}) => {
     }
 
     const verifyRecaptcha = async () => {
-        if(!executeRecaptcha) {
+        if (!executeRecaptcha) {
             console.log("not available execute recaptcha")
             return
         }
@@ -131,7 +131,7 @@ const Form = ({newRef, className}) => {
 
         const verified = await verifyRecaptcha();
 
-        if(verified) {
+        if (verified) {
             setLoading(true);
             setOpen(true);
 
@@ -194,17 +194,18 @@ const Form = ({newRef, className}) => {
                             checked={form.location === "Hawthorne Blvd, Inglewood"}
                             onChange={() => handleRadioButton("location", "Hawthorne Blvd, Inglewood")}
                         />
-                        <label htmlFor="hawthorne" className={s.checkboxDescription}>Hawthorne Blvd, Inglewood</label>
+                        <label htmlFor="hawthorne" className={s.checkboxDescription}>Florence Ave, Huntington
+                            Park</label>
                     </div>
-                    <div className={[s.checkbox, error.location ? s.errorRadioBtn : ""].join(" ")}>
-                        <input
-                            type="radio"
-                            id="sepulveda"
-                            checked={form.location === "Sepulveda Blvd, Culver City"}
-                            onChange={() => handleRadioButton("location", "Sepulveda Blvd, Culver City")}
-                        />
-                        <label htmlFor="sepulveda" className={s.checkboxDescription}>Sepulveda Blvd, Culver City</label>
-                    </div>
+                    {/*<div className={[s.checkbox, error.location ? s.errorRadioBtn : ""].join(" ")}>*/}
+                    {/*    <input*/}
+                    {/*        type="radio"*/}
+                    {/*        id="sepulveda"*/}
+                    {/*        checked={form.location === "Sepulveda Blvd, Culver City"}*/}
+                    {/*        onChange={() => handleRadioButton("location", "Sepulveda Blvd, Culver City")}*/}
+                    {/*    />*/}
+                    {/*    <label htmlFor="sepulveda" className={s.checkboxDescription}>Sepulveda Blvd, Culver City</label>*/}
+                    {/*</div>*/}
                 </div>
                 <DragAndDropInput sent={open} onLoad={handleLoadImage} className={error.images ? s.error : ""}>
                     <button className={s.buttonForm}>Get Quote</button>

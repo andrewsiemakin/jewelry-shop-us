@@ -97,7 +97,6 @@
   }
 
 
-
   .placeholder {
     position: absolute;
     top: 10px;
@@ -145,6 +144,46 @@
   .checkbox {
     display: flex;
     align-items: center;
+  }
+
+  .radioButtonGroup {
+    display: flex;
+    flex-direction: column;
+  }
+
+  //Radio styles for black color
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  input[type="radio"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.3s;
+  }
+
+  input[type="radio"]:checked + label::before {
+    background: #000;
+  }
+
+  input[type="radio"]:checked + label {
+    color: #000;
   }
 
   .buttonForm {

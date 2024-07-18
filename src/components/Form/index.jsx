@@ -1,21 +1,16 @@
 "use client";
 
-import s from "./Form.module.scss"
+import s from "./Form.module.scss";
 
 import {useState} from "react";
 import {useMask} from "@react-input/mask";
-
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
-
 import {validate} from "@/actions/reCaptcha";
-
 import DragAndDropInput from "./ui/DragAndDropInput";
 import SuccessfulPopup from "@/components/SuccessfulPopup";
 import {Noto_Serif_JP} from "next/font/google";
 import Container from "@/components/Container";
-
 import Image from "next/image";
-
 import guitar from "@/images/guitar-image-bg.png";
 import watch from "@/images/watch-image-bg.png";
 
@@ -24,9 +19,9 @@ const defaultForm = {
     email: "",
     phone: "",
     description: "",
-    location: "",
-    images: []
-}
+    location: "Hawthorne Blvd, Inglewood", // Set default location here
+    images: [],
+};
 
 const defaultError = {
     name: false,
@@ -34,16 +29,19 @@ const defaultError = {
     phone: false,
     description: false,
     location: false,
-    images: false
-}
+    images: false,
+};
 
-const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"})
-
+const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"});
 
 const Form = ({newRef, className}) => {
-    const inputRef = useMask({mask: '+1 (___) ___-____', replacement: {_: /\d/}, showMask: true});
+    const inputRef = useMask({
+        mask: "+1 (___) ___-____",
+        replacement: {_: /\d/},
+        showMask: true,
+    });
 
-    const {executeRecaptcha} = useGoogleReCaptcha()
+    const {executeRecaptcha} = useGoogleReCaptcha();
 
     const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -52,81 +50,62 @@ const Form = ({newRef, className}) => {
     const [error, setError] = useState(defaultError);
 
     const handleChange = (key) => (event) => {
-        setForm(prevState => ({
+        setForm((prevState) => ({
             ...prevState,
-            [key]: event.target.value
+            [key]: event.target.value,
         }));
-    }
+    };
 
     const handleRadioButton = (key, text) => {
-        setForm(prevState => ({
+        setForm((prevState) => ({
             ...prevState,
-            [key]: text
+            [key]: text,
         }));
-    }
+    };
 
     const handleLoadImage = (images) => {
-        setForm(prevState => ({
+        setForm((prevState) => ({
             ...prevState,
-            images
+            images,
         }));
-    }
+    };
 
     const handleRequiredCheck = () => {
-        const {name, email, phone, description, location, images} = form
+        const {name, email, phone, description, location, images} = form;
 
         let errorsList = {
-            name: false,
-            email: false,
-            phone: false,
-            description: false,
-            location: false,
-            images: false
-        }
+            name: !name,
+            email: !email,
+            phone: !phone,
+            description: !description,
+            location: !location,
+            images: images.length === 0,
+        };
 
-        if (!name) {
-            errorsList.name = true
-        }
-        if (!email) {
-            errorsList.email = true
-        }
-        if (!phone) {
-            errorsList.phone = true
-        }
-        if (!description) {
-            errorsList.description = true
-        }
-        if (!location) {
-            errorsList.location = true
-        }
-        if (!images.length) {
-            errorsList.images = true
-        }
+        setError(errorsList);
 
-        setError(errorsList)
-        return Object.keys(errorsList).map(key => errorsList[key])
-    }
+        return Object.values(errorsList);
+    };
 
     const verifyRecaptcha = async () => {
         if (!executeRecaptcha) {
-            console.log("not available execute recaptcha")
-            return
+            console.log("Execute recaptcha is not available.");
+            return false;
         }
 
-        const gRecaptchaToken = await executeRecaptcha("inquirySubmit")
-
+        const gRecaptchaToken = await executeRecaptcha("inquirySubmit");
         const res = await validate(gRecaptchaToken);
 
         return res?.success;
-    }
+    };
 
     const onSubmit = async (event) => {
         event.preventDefault();
 
-        const errors = handleRequiredCheck()
+        const errors = handleRequiredCheck();
 
         if (errors.includes(true)) {
-            return
+            return;
         }
 
         const verified = await verifyRecaptcha();
@@ -135,41 +114,68 @@ const Form = ({newRef, className}) => {
             setLoading(true);
             setOpen(true);
 
-            console.log("reCaptcha - verified");
+            console.log("reCaptcha verified");
 
-            await fetch('/api/sell-items', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(form),
-            });
+            try {
+                const response = await fetch("/api/sell-items", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(form),
+                });
 
-            setLoading(false);
+                if (response.ok) {
+                    setLoading(false);
+                } else {
+                    throw new Error("Failed to submit form.");
+                }
+            } catch (error) {
+                console.error("Error submitting form:", error);
+                setLoading(false);
+            }
 
-            return
+            return;
         }
 
-        return alert("reCaptcha is not verified");
+        alert("reCaptcha verification failed.");
     };
 
     const handleClose = () => {
         setForm(defaultForm);
         setError(defaultError);
         setOpen(false);
-    }
+    };
 
     return (
         <Container newRef={newRef} section className={[s.container, className].join(" ")}>
             <form className={s.wrapper} onSubmit={onSubmit}>
-                <h4 className={[noto.className, s.title].join(" ")}>Looking to Sell Items?</h4>
+                <h4 className={[noto.className, s.title].join(" ")}>
+                    Looking to Sell Items?
+                </h4>
                 <div className={s.formSection}>
-                    <input className={[s.input, error.name ? s.error : ""].join(" ")} value={form.name} type="text"
-                           placeholder="Name" onChange={handleChange("name")}/>
-                    <input className={[s.input, error.email ? s.error : ""].join(" ")} value={form.email} type="email"
-                           placeholder="Email" onChange={handleChange("email")}/>
-                    <input className={[s.input, error.phone ? s.error : ""].join(" ")} value={form.phone} ref={inputRef}
-                           type="text" placeholder="Phone or Text Number" onChange={handleChange("phone")}/>
+                    <input
+                        className={[s.input, error.name ? s.error : ""].join(" ")}
+                        value={form.name}
+                        type="text"
+                        placeholder="Name"
+                        onChange={handleChange("name")}
+                    />
+                    <input
+                        className={[s.input, error.email ? s.error : ""].join(" ")}
+                        value={form.email}
+                        type="email"
+                        placeholder="Email"
+                        onChange={handleChange("email")}
+                    />
+                    <input
+                        className={[s.input, error.phone ? s.error : ""].join(" ")}
+                        value={form.phone}
+                        ref={inputRef}
+                        type="text"
+                        placeholder="Phone or Text Number"
+                        onChange={handleChange("phone")}
+                    />
                 </div>
                 <div className={[s.textAreaField, error.description ? s.error : ""].join(" ")}>
                     <label>Describe Your Item</label>
@@ -179,14 +185,14 @@ const Form = ({newRef, className}) => {
                         className={s.textArea}
                         placeholder="Details like your watch model and jewelry information, certificate etc."
                         onChange={handleChange("description")}
-
-                    >
-                    </textarea>
+                    ></textarea>
                 </div>
                 <p className={s.numOfChars}>{form.description.length ?? 0} of 500 max characters</p>
                 <div className={s.checkboxSection}>
-                    <h4 className={s.checkboxSectionTitle}>Which Location Would You <br/>
-                        Like To Visit</h4>
+                    <h4 className={s.checkboxSectionTitle}>
+                        Which Location Would You <br/>
+                        Like To Visit
+                    </h4>
                     <div className={[s.checkbox, error.location ? s.errorRadioBtn : ""].join(" ")}>
                         <input
                             type="radio"
@@ -194,18 +200,10 @@ const Form = ({newRef, className}) => {
                             checked={form.location === "Hawthorne Blvd, Inglewood"}
                             onChange={() => handleRadioButton("location", "Hawthorne Blvd, Inglewood")}
                         />
-                        <label htmlFor="hawthorne" className={s.checkboxDescription}>Florence Ave, Huntington
-                            Park</label>
+                        <label htmlFor="hawthorne" className={s.checkboxDescription}>
+                            Florence Ave, Huntington Park
+                        </label>
                     </div>
-                    {/*<div className={[s.checkbox, error.location ? s.errorRadioBtn : ""].join(" ")}>*/}
-                    {/*    <input*/}
-                    {/*        type="radio"*/}
-                    {/*        id="sepulveda"*/}
-                    {/*        checked={form.location === "Sepulveda Blvd, Culver City"}*/}
-                    {/*        onChange={() => handleRadioButton("location", "Sepulveda Blvd, Culver City")}*/}
-                    {/*    />*/}
-                    {/*    <label htmlFor="sepulveda" className={s.checkboxDescription}>Sepulveda Blvd, Culver City</label>*/}
-                    {/*</div>*/}
                 </div>
                 <DragAndDropInput sent={open} onLoad={handleLoadImage} className={error.images ? s.error : ""}>
                     <button className={s.buttonForm}>Get Quote</button>

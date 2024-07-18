@@ -7,8 +7,8 @@ const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"})
 const MapsSection = ({newRef, className}) => {
     return (
         <div ref={newRef} className={[s.wrapper, className].join(" ")}>
-            <p className={[noto.className, s.locationTitle].join(" ")}>We have two convenient <br/>
-                locations to serve you:</p>
+            <p className={[noto.className, s.locationTitle].join(" ")}>We have a convenient <br/>
+                location to serve you:</p>
             <div className={s.map}>
                 <div>
                     <iframe

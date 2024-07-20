@@ -10,7 +10,7 @@ const ReviewBlock = async ({className}) => {
     const reviews = await getReviews()
 
     return (
-        <GoogleReviews className={className} reviews={reviews.result.reviews} />
+        <GoogleReviews className={className} reviews={reviews?.result?.reviews ?? []} />
     );
 };
 

@@ -29,7 +29,7 @@ const Footer = () => {
                 <div className={s.infoSection}>
                     <div className={s.infoBlock}>
                         <h4 className={s.infoTitle}>Email</h4>
-                        <a href="mailto:jack@jackpownshop.com" className={s.infoDescription}>jack@jackpownshop.com</a>
+                        <a href="mailto:jack@jackpownshop.com" className={s.infoDescription}>azulpawnshop@gmail.com</a>
                     </div>
                     <div className={s.infoBlock}>
                         <h4 className={s.infoTitle}>Telephone</h4>
@@ -38,8 +38,9 @@ const Footer = () => {
                     <div className={s.infoBlock}>
                         <h4 className={s.infoTitle}>Address</h4>
                         <p className={s.infoDescription}>
-                            Azul Pawn Shop Huntington Park 2644 <br/>
-                            E Florence Ave, Huntington Park, CA 90255
+                            Azul Pawn Shop Huntington
+                            Park 2644 <br/> E Florence Ave, 
+                            Huntington Park, CA 90255
                         </p>
 
                     </div>

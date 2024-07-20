@@ -9,14 +9,12 @@ import logo from "../../images/main-logo-image-white.svg";
 import Link from "next/link";
 import {Noto_Serif_JP} from "next/font/google";
 
-const noto = Noto_Serif_JP({weight: "500", subsets: ["latin"]});
-
 const Footer = () => {
     return (
         <footer className={s.wrapper}>
             <div className={s.first}>
                 <div className={s.sendMessageWrapper}>
-                    <div className={[s.sendMessage, noto.className].join(" ")}>
+                    <div className={[s.sendMessage].join(" ")}>
                         Send us a message
                     </div>
                     <Image src={arrow} alt="arrow icon"/>

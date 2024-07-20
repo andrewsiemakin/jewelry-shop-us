@@ -31,6 +31,8 @@
     align-items: center;
     justify-content: center;
 
+    font-family: "Noto Serif JP", serif;
+
     .loansTitle {
       font-size: 48px;
       margin: 0;
@@ -110,7 +112,7 @@
 }
 
 .stepTitle {
-  font-family: "Noto Sans JP", serif;
+  font-family: "Noto Serif JP", serif;
   color: black;
   text-transform: uppercase;
   font-size: 26px;
@@ -136,7 +138,7 @@
 
 
 .stepTitleWhite {
-  font-family: "Noto Sans JP", serif;
+  font-family: "Noto Serif JP", serif;
   color: white;
   text-transform: uppercase;
   font-size: 26px;

@@ -22,12 +22,6 @@ const useIntersectionObserver = (setVisibleClass) => {
         elementsRef.current.forEach((el) => {
             observer.observe(el);
         });
-
-        return () => {
-            elementsRef.current.forEach((el) => {
-                observer.unobserve(el);
-            });
-        };
     }, [setVisibleClass]);
 
     return elementsRef;

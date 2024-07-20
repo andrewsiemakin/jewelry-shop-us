@@ -1,5 +1,8 @@
-import React from 'react';
+"use client";
+
 import s from "./LoansSection.module.scss"
+
+import {useMainContext} from "@/app/MainContext";
 
 import watches from "../../icons/watch-icon.png"
 import gold from "../../icons/gold-icon.png"
@@ -9,15 +12,15 @@ import tools from "../../icons/tools-icon.png"
 import guitar from "../../icons/guitar-icon.png"
 
 import Image from "next/image";
-import {Noto_Serif_JP} from "next/font/google";
 
-const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
+const LoansSection = ({className}) => {
+    const {blocksRef} = useMainContext()
+    const newRef = (el) => blocksRef.current[3] = el
 
-const LoansSection = ({newRef, className}) => {
     return (
         <div ref={newRef} className={[s.wrapper, className].join(" ")}>
             <div className={s.acceptSection}>
-                <h3 className={[noto.className, s.acceptTitle].join(" ")}>We accept</h3>
+                <h3 className={[s.acceptTitle].join(" ")}>We accept</h3>
                 <div className={s.productsSection}>
                     <div className={s.productBlock}>
                         <Image src={watches} alt="watches icon"/>

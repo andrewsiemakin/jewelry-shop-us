@@ -1,13 +1,17 @@
+"use client";
+
 import s from "./MapsSection.module.scss"
-import {Noto_Serif_JP} from "next/font/google";
 
-const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"})
+import {useMainContext} from "@/app/MainContext";
 
+const MapsSection = ({className}) => {
+    const {blocksRef} = useMainContext()
 
-const MapsSection = ({newRef, className}) => {
+    const newRef = (el) => blocksRef.current[5] = el
+
     return (
         <div ref={newRef} className={[s.wrapper, className].join(" ")}>
-            <p className={[noto.className, s.locationTitle].join(" ")}>We have a convenient <br/>
+            <p className={[s.locationTitle].join(" ")}>We have a convenient <br/>
                 location to serve you:</p>
             <div className={s.map}>
                 <div>

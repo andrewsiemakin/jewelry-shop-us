@@ -3,12 +3,14 @@
 import s from "./Form.module.scss";
 
 import {useState} from "react";
+
+import {useMainContext} from "@/app/MainContext";
+
 import {useMask} from "@react-input/mask";
 import {useGoogleReCaptcha} from "react-google-recaptcha-v3";
 import {validate} from "@/actions/reCaptcha";
 import DragAndDropInput from "./ui/DragAndDropInput";
 import SuccessfulPopup from "@/components/SuccessfulPopup";
-import {Noto_Serif_JP} from "next/font/google";
 import Container from "@/components/Container";
 import Image from "next/image";
 import guitar from "@/images/guitar-image-bg.png";
@@ -32,9 +34,11 @@ const defaultError = {
     images: false,
 };
 
-const noto = Noto_Serif_JP({subsets: ["latin"], weight: "600"});
+const Form = ({className}) => {
+    const {blocksRef} = useMainContext()
 
-const Form = ({newRef, className}) => {
+    const newRef = (el) => blocksRef.current[6] = el
+
     const inputRef = useMask({
         mask: "+1 (___) ___-____",
         replacement: {_: /\d/},
@@ -150,7 +154,7 @@ const Form = ({newRef, className}) => {
     return (
         <Container newRef={newRef} section className={[s.container, className].join(" ")}>
             <form className={s.wrapper} onSubmit={onSubmit}>
-                <h4 className={[noto.className, s.title].join(" ")}>
+                <h4 className={[s.title].join(" ")}>
                     Looking to Sell Items?
                 </h4>
                 <div className={s.formSection}>

@@ -1,4 +1,8 @@
+"use client";
+
 import s from "./StepsSection.module.scss";
+
+import {useMainContext} from "@/app/MainContext";
 
 import stepOne from "../../images/step-one-image.svg";
 import stepTwo from "../../images/step-two-image.svg";
@@ -6,20 +10,20 @@ import stepThree from "../../images/step-three-image.svg";
 import jewelryHand from "../../images/gevelry-hand.png";
 
 import Image from "next/image";
-import {Noto_Serif_JP} from "next/font/google";
 
 import Container from "@/components/Container";
 import Button from "@/components/Button";
 
-const noto = Noto_Serif_JP({ subsets: ["latin"], weight: "600" })
+const StepsSection = ({className}) => {
+    const {blocksRef, handlePopup} = useMainContext()
+    const newRef = (el) => blocksRef.current[2] = el
 
-const StepsSection = ({newRef, className, handlePopup}) => {
     return (
         <Container newRef={newRef} section id="loans-section" className={[s.wrapper, className].join(" ")}>
             <div className={s.loansSection}>
                 <div className={s.loansHeader}>
-                    <p className={[noto.className, s.loansTitle].join(" ")}>Pawn Loans or Sell</p>
-                    <p className={[noto.className, s.loansSubtitle].join(" ")}>How It Works</p>
+                    <p className={[s.loansTitle].join(" ")}>Pawn Loans or Sell</p>
+                    <p className={[s.loansSubtitle].join(" ")}>How It Works</p>
                 </div>
             </div>
             <div className={s.stepsSection}>

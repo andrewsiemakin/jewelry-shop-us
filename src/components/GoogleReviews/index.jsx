@@ -1,50 +1,22 @@
+"use client";
+
 import s from "./GoogleReviews.module.scss";
 
-import { useEffect, useState } from 'react';
+import {useMainContext} from "@/app/MainContext";
 
-const GoogleReviews = () => {
-    const [reviews, setReviews] = useState([]);
-    const [error, setError] = useState(null);
-    const googleApiKey = 'YOUR_GOOGLE_API_KEY'; // Replace with your actual API key
-    const placeId = 'YOUR_PLACE_ID'; // Replace with your Google Maps Place ID
+import Button from "@/components/Button";
+import GoogleReviewsCarousel from "@/components/GoogleReviewsCarousel";
 
-    useEffect(() => {
-        const fetchReviews = async () => {
-            try {
-                const response = await axios.get(
-                    `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=reviews&key=${googleApiKey}`
-                );
+const GoogleReviews = ({className, reviews}) => {
+    const {blocksRef, handlePopup} = useMainContext()
 
-                if (response.data && response.data.result && response.data.result.reviews) {
-                    setReviews(response.data.result.reviews);
-                }
-            } catch (err) {
-                setError(err);
-            }
-        };
-
-        fetchReviews();
-    }, [googleApiKey, placeId]);
-
-    if (error) {
-        return <div>Error fetching reviews: {error.message}</div>;
-    }
+    const newRef = (el) => blocksRef.current[4] = el
 
     return (
-        <div>
-            <h2>Google Reviews</h2>
-            {reviews.length > 0 ? (
-                reviews.map((review, index) => (
-                    <div key={index}>
-                        <h4>{review.author_name}</h4>
-                        <p>{review.text}</p>
-                        <p>Rating: {review.rating}</p>
-                        <hr />
-                    </div>
-                ))
-            ) : (
-                <p>No reviews available.</p>
-            )}
+        <div ref={newRef} className={[s.wrapper, className].join(" ")}>
+            <h4 className={[s.reviewTitle].join(" ")}>Testimonials</h4>
+            <GoogleReviewsCarousel reviews={reviews}/>
+            <Button className={s.button} onClick={handlePopup}>Request a Quote</Button>
         </div>
     );
 };

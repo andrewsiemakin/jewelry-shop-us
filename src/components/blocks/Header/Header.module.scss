@@ -158,6 +158,8 @@
   margin: 0;
   letter-spacing: 1px;
 
+  font-family: "Noto Serif JP", serif;
+
   @media screen and (min-width: $tablet) {
     max-width: 464px;
     font-size: 48px;

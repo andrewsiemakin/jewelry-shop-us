@@ -2,14 +2,14 @@
 
 .wrapper {
   display: block;
-  padding-top: 26px;
-  padding-bottom: 44px;
+  padding-top: 26px !important;
+  padding-bottom: 44px !important;
   background: linear-gradient(0deg, rgba(222, 217, 208, 0.8), rgba(222, 217, 208, 0.8)), url("/images/about-us.png");
 
   @media screen and (min-width: $tablet) {
     background: rgb(222, 217, 208);
-    padding-top: 62px;
-    padding-bottom: 67px;
+    padding-top: 62px !important;
+    padding-bottom: 67px !important;
     display: flex;
     gap: 119px;
   }
@@ -37,6 +37,7 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 14px;
+  font-family: "Noto Serif JP", serif;
 
   @media screen and (min-width: $tablet) {
     display: flex;
@@ -52,6 +53,8 @@
   display: flex;
   font-size: 14px;
   margin-top: 16px;
+
+  font-family: 'Montserrat', sans-serif;
 
   @media screen and (min-width: $tablet) {
     max-width: 434px;

@@ -11,7 +11,7 @@
   flex-direction: column;
 
   width: 100%;
-  max-width: 190px;
+  max-width: 310px;
   min-height: 220px;
   padding: 48px 65px;
   background: rgba(248, 243, 233, 1);
@@ -24,16 +24,24 @@
   line-height: 34.49px;
   text-align: center;
 
+  font-family: "Noto Serif JP", serif;
+
 }
 
 .description {
+
+  margin-top: 36px;
   font-size: 18px;
   line-height: 21.94px;
   text-align: center;
+
+  font-family: 'Montserrat', sans-serif;
 }
 
 .btn {
   width: 100%;
+
+  margin-top: 24px;
 
   cursor: pointer;
   background: transparent;

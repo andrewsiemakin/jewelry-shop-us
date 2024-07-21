@@ -16,8 +16,8 @@ const MapsSection = ({className}) => {
             <div className={s.map}>
                 <div>
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.7242606075774!2d-118.22639922482652!3d33.97392612186251!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c93ece8c8a35%3A0x8775f77f16dd5a07!2sAzul%20Pawn%20Shop%20Huntington%20Park!5e0!3m2!1sru!2sua!4v1721320016037!5m2!1sru!2sua"
-                        width="300" height="300" style={{border: 0}} allowFullScreen="" loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.7242606119635!2d-118.22640458875073!3d33.973926121749805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c93ece8c8a35%3A0x8775f77f16dd5a07!2sAzul%20Pawn%20Shop%20Huntington%20Park!5e0!3m2!1sen!2sus!4v1721511659852!5m2!1sen!2sus"
+                        width="400" height="300" style={{border: 0}} allowFullScreen="" loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"></iframe>
                     <p className={s.mapDescription}>Azul Pawn Shop Huntington <br/>
                         Park 2644 E Florence Ave, <br/>

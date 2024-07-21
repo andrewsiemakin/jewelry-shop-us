@@ -14,9 +14,9 @@ const GoogleReviews = ({className, reviews}) => {
 
     return (
         <div ref={newRef} className={[s.wrapper, className].join(" ")}>
-            <h4 className={[s.reviewTitle].join(" ")}>Testimonials</h4>
+            <h4 className={[s.reviewTitle].join(" ")}>Reviews</h4>
             <GoogleReviewsCarousel reviews={reviews}/>
-            <Button className={s.button} onClick={handlePopup}>Request a Quote</Button>
+            <Button onClick={handlePopup} />
         </div>
     );
 };

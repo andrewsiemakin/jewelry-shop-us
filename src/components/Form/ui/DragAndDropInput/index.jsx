@@ -13,11 +13,11 @@ const DragAndDropInput = ({onLoad, className, sent, children}) => {
     const [selectedFiles, setSelectedFiles] = useState([]);
 
     const onDrop = (acceptedFiles) => {
-        const maxSize = 5 * 1024 * 1024; // 5 MB
+        const maxSize = 50 * 1024 * 1024; // 50 MB
         const validFiles = acceptedFiles.filter(file => file.size <= maxSize);
 
         if (validFiles.length !== acceptedFiles.length) {
-            alert('Some files are too large. Please upload files smaller than 5MB.');
+            alert('Some files are too large. Please upload files smaller than 50MB.');
         }
 
         const uniqueFiles = validFiles.filter(file => !selectedFiles.some(existingFile => existingFile.name === file.name));

@@ -67,7 +67,7 @@ const StepsSection = ({className}) => {
                 </div>
             </div>
             <Image src={jewelryHand} alt="hand" className={s.jewelryHand}/>
-            <Button onClick={handlePopup} className={s.button}>Request a Quote</Button>
+            <Button onClick={handlePopup}>Request a Quote</Button>
         </Container>
     );
 };

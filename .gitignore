@@ -93,6 +93,7 @@ out
 .nuxt
 dist
 build
+deploy
 
 # Gatsby files
 .cache/

@@ -3,15 +3,9 @@
 
 .wrapper {
     position: fixed; /* Фиксированная позиция */
-    top: 700px; /* Отступ сверху */
-    right: 50px; /* Отступ справа */
+    bottom: 100px; /* Отступ сверху */
+    right: 10px; /* Отступ справа */
     z-index: 100; /* Z-index, чтобы быть поверх остального контента */
-
-    @media screen and (min-width: $tablet) {
-        top: 600px; /* Отступ сверху */
-        right: 60px; /* Отступ справа */
-        z-index: 1000; /* Z-index, чтобы быть поверх остального контента */
-    }
 }
 
 .wrapper::before {
